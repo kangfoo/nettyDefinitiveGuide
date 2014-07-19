@@ -1,2 +1,24 @@
 
 .idea/.name
+
+.idea/compiler.xml
+
+.idea/copyright/profiles_settings.xml
+
+.idea/encodings.xml
+
+.idea/misc.xml
+
+.idea/scopes/scope_settings.xml
+
+.idea/modules.xml
+
+.idea/uiDesigner.xml
+
+.idea/vcs.xml
+
+.idea/workspace.xml
+
+ch2/.DS_Store
+
+kangfoo.nettyDefinitiveGuide.iml

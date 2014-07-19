@@ -1,0 +1,36 @@
+BIO 模型，通常 由一个对立的 Acceptor 线程负责监听客户端连接。采用 观察者模式进行请求处理。它每收到一次请求就创建一个线程... ...
+
+它缺乏弹性伸缩能力。 客户端和服务器端在并发下，线程数呈 1： 1 趋势， 服务器端浪费了 大量的 线程资源， Java 堆内存溢出。
+
+
+运行程序：
+
+1. 运行服务器端 com.kangfoo.nettystudy.ch2._2_1.TimeServer
+输出：
+The time server is start in port : 8080
+
+
+2. 运行客户端 com.kangfoo.nettystudy.ch2._2_1.TimeClient
+输出：
+Send order 2 server succeed.
+Now is : Sun Jul 20 01:48:23 CST 2014
+
+3. 服务器输出
+输出：
+The time server is start in port : 8080
+SnapShooter listening on port 60564
+The time server receive order : QUERY TIME ORDER
+
+4. jvisual 查看
+"Monitor Ctrl-Break" daemon prio=5 tid=0x00007ff572813000 nid=0x5e03 runnable [0x0000000191d65000]
+   java.lang.Thread.State: RUNNABLE
+	at java.net.PlainSocketImpl.socketAccept(Native Method)
+	at java.net.AbstractPlainSocketImpl.accept(AbstractPlainSocketImpl.java:398)
+	at java.net.ServerSocket.implAccept(ServerSocket.java:530)
+	at java.net.ServerSocket.accept(ServerSocket.java:498)
+	at com.intellij.rt.execution.application.AppMain$1.run(AppMain.java:82)
+	at java.lang.Thread.run(Thread.java:744)
+
+   Locked ownable synchronizers:
+	- None
+

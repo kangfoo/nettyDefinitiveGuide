@@ -5,12 +5,12 @@ BIO 模型，通常 由一个对立的 Acceptor 线程负责监听客户端连�
 
 运行程序：
 
-1. 运行服务器端 com.kangfoo.nettystudy.ch2._2_1.TimeServer
+1. 运行服务器端 com.kangfoo.nettystudy.ch2._2_1_BIO.TimeServer
 输出：
 The time server is start in port : 8080
 
 
-2. 运行客户端 com.kangfoo.nettystudy.ch2._2_1.TimeClient
+2. 运行客户端 com.kangfoo.nettystudy.ch2._2_1_BIO.TimeClient
 输出：
 Send order 2 server succeed.
 Now is : Sun Jul 20 01:48:23 CST 2014

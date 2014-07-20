@@ -1,4 +1,4 @@
-package com.kangfoo.nettystudy.ch2._2_3;
+package com.kangfoo.nettystudy.ch2._2_3_NIO;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

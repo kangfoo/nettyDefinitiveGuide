@@ -1,7 +1,5 @@
 package com.kangfoo.nettystudy.ch2._2_2;
 
-import com.kangfoo.nettystudy.ch2._2_1.TimeServerHandler;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;

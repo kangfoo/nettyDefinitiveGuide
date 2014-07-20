@@ -1,6 +1,6 @@
 package com.kangfoo.nettystudy.ch2._2_2;
 
-import com.kangfoo.nettystudy.ch2._2_1.TimeServerHandler;
+import com.kangfoo.nettystudy.ch2._2_1_BIO.TimeServerHandler;
 
 import java.io.IOException;
 import java.net.ServerSocket;

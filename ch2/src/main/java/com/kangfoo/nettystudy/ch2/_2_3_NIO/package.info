@@ -15,5 +15,8 @@ Channel可以分为两大类，分别是用于网络读写的SelectableChannel�
 一个多路复用器Selector可以同时轮询多个Channel，由于JDK使用了epoll()代替传统的select实现，所以它并没有最大连接句柄1024/2048的限制。
 
 
-NIO 服务端序列图
+《Netty 权威指南》—— NIO 服务端序列图
 http://ifeve.com/netty-2-3-2/
+
+《Netty 权威指南》—— NIO客户端序列图
+http://ifeve.com/netty-2-3-4/

@@ -1,0 +1,10 @@
+在java 7 + 中，AIO 提供了异步文件通道和异步套接字通道。有两种方式获取异步通道：
+ 1. java.util.concurrent.Future 获取异步操作的结果
+ 2. 在执行异步操作的时候传入一个 java.nio.channels
+ CompletionHandler 接口实现类作为操作完成的回调。
+
+《Netty 权威指南》—— AIO 创建的TimeServer源码分析
+http://ifeve.com/netty-2-4-1/
+
+《Netty 权威指南》—— AIO创建的TimeClient源码分析
+http://ifeve.com/netty-4-2/

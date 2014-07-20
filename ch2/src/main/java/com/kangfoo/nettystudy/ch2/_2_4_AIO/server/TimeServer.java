@@ -1,11 +1,11 @@
-package com.kangfoo.nettystudy.ch2._2_3;
+package com.kangfoo.nettystudy.ch2._2_4_AIO.server;
 
 import java.io.IOException;
 
 /**
  * User: kangfoo-mac
  * Date: 14-7-20
- * Time: 上午3:01
+ * Time: 下午2:10
  */
 public class TimeServer {
     public static void main(String[] args) throws IOException {
@@ -17,7 +17,8 @@ public class TimeServer {
                 // 采用默认值
             }
         }
-        MultiplexerTimeServer timeServer = new MultiplexerTimeServer(port);
-        new Thread(timeServer, "NIO-MultiplexerTimeServer-001").start();    // 启动一个多路复用器 Selector。
+        AsyncTimeServerHandler timeServer = new AsyncTimeServerHandler(port);
+        new Thread(timeServer, "AIO-AsyncTimeServerHandler-001").start();
     }
 }
+

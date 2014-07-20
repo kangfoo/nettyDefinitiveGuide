@@ -1,4 +1,4 @@
-package com.kangfoo.nettystudy.ch2._2_1;
+package com.kangfoo.nettystudy.ch2._2_1_BIO;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,0 +1,15 @@
+本章示例目标，使用 netty 进行练习。
+日志提示：
+
+07/20/2014 15:29:04.825 DEBUG  main [PlatformDependent] -Dio.netty.noJavassist: false
+07/20/2014 15:29:04.826 DEBUG  main [PlatformDependent] Javassist: unavailable
+07/20/2014 15:29:04.826 DEBUG  main [PlatformDependent] You don't have Javassist in your class path or you don't have enough permission to load dynamically generated classes.  Please check the configuration for better performance.
+07/20/2014 15:29:04.827 DEBUG  main [PlatformDependent] -Dio.netty.noPreferDirect: false
+
+maven 依赖中添加：
+            <dependency>
+                <groupId>javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.12.1.GA</version>
+            </dependency>
+

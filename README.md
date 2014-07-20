@@ -21,3 +21,7 @@ _x_y  区分： 如 第二章节 2.1  即为： _2_1
 扩展博文：
 通讯系统经验谈【一】TCP连接状态分析：SYNC_RECV，CLOSE_WAIT，TIME_WAIT
 http://maoyidao.iteye.com/blog/1744277
+
+TCP/IP协议中backlog分析与设置以及TCP状态变化
+http://www.2cto.com/net/201307/224634.html
+

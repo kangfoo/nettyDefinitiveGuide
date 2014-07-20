@@ -1,0 +1,223 @@
+本章示例目标，使用 netty LineBasedFrameDecoder + StringDecoder 解决 TCP 粘包/拆包的问题。
+
+添加解码器：
+private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
+
+        @Override
+        protected void initChannel(SocketChannel ch) throws Exception {
+            ch.pipeline().addLast(new LineBasedFrameDecoder(1024)); //添加 换换解码器
+            ch.pipeline().addLast(new StringDecoder());               // 字符串解码器
+            ch.pipeline().addLast(new TimeServerHandler());
+        }
+    }
+
+客户端 100 个循环下
+
+服务器端日志：
+The time server receive order : QUERY TIME ORDER ; the counter is : 1
+The time server receive order : QUERY TIME ORDER ; the counter is : 2
+The time server receive order : QUERY TIME ORDER ; the counter is : 3
+The time server receive order : QUERY TIME ORDER ; the counter is : 4
+The time server receive order : QUERY TIME ORDER ; the counter is : 5
+The time server receive order : QUERY TIME ORDER ; the counter is : 6
+The time server receive order : QUERY TIME ORDER ; the counter is : 7
+The time server receive order : QUERY TIME ORDER ; the counter is : 8
+The time server receive order : QUERY TIME ORDER ; the counter is : 9
+The time server receive order : QUERY TIME ORDER ; the counter is : 10
+The time server receive order : QUERY TIME ORDER ; the counter is : 11
+The time server receive order : QUERY TIME ORDER ; the counter is : 12
+The time server receive order : QUERY TIME ORDER ; the counter is : 13
+The time server receive order : QUERY TIME ORDER ; the counter is : 14
+The time server receive order : QUERY TIME ORDER ; the counter is : 15
+The time server receive order : QUERY TIME ORDER ; the counter is : 16
+The time server receive order : QUERY TIME ORDER ; the counter is : 17
+The time server receive order : QUERY TIME ORDER ; the counter is : 18
+The time server receive order : QUERY TIME ORDER ; the counter is : 19
+The time server receive order : QUERY TIME ORDER ; the counter is : 20
+The time server receive order : QUERY TIME ORDER ; the counter is : 21
+The time server receive order : QUERY TIME ORDER ; the counter is : 22
+The time server receive order : QUERY TIME ORDER ; the counter is : 23
+The time server receive order : QUERY TIME ORDER ; the counter is : 24
+The time server receive order : QUERY TIME ORDER ; the counter is : 25
+The time server receive order : QUERY TIME ORDER ; the counter is : 26
+The time server receive order : QUERY TIME ORDER ; the counter is : 27
+The time server receive order : QUERY TIME ORDER ; the counter is : 28
+The time server receive order : QUERY TIME ORDER ; the counter is : 29
+The time server receive order : QUERY TIME ORDER ; the counter is : 30
+The time server receive order : QUERY TIME ORDER ; the counter is : 31
+The time server receive order : QUERY TIME ORDER ; the counter is : 32
+The time server receive order : QUERY TIME ORDER ; the counter is : 33
+The time server receive order : QUERY TIME ORDER ; the counter is : 34
+The time server receive order : QUERY TIME ORDER ; the counter is : 35
+The time server receive order : QUERY TIME ORDER ; the counter is : 36
+The time server receive order : QUERY TIME ORDER ; the counter is : 37
+The time server receive order : QUERY TIME ORDER ; the counter is : 38
+The time server receive order : QUERY TIME ORDER ; the counter is : 39
+The time server receive order : QUERY TIME ORDER ; the counter is : 40
+The time server receive order : QUERY TIME ORDER ; the counter is : 41
+The time server receive order : QUERY TIME ORDER ; the counter is : 42
+The time server receive order : QUERY TIME ORDER ; the counter is : 43
+The time server receive order : QUERY TIME ORDER ; the counter is : 44
+The time server receive order : QUERY TIME ORDER ; the counter is : 45
+The time server receive order : QUERY TIME ORDER ; the counter is : 46
+The time server receive order : QUERY TIME ORDER ; the counter is : 47
+The time server receive order : QUERY TIME ORDER ; the counter is : 48
+The time server receive order : QUERY TIME ORDER ; the counter is : 49
+The time server receive order : QUERY TIME ORDER ; the counter is : 50
+The time server receive order : QUERY TIME ORDER ; the counter is : 51
+The time server receive order : QUERY TIME ORDER ; the counter is : 52
+The time server receive order : QUERY TIME ORDER ; the counter is : 53
+The time server receive order : QUERY TIME ORDER ; the counter is : 54
+The time server receive order : QUERY TIME ORDER ; the counter is : 55
+The time server receive order : QUERY TIME ORDER ; the counter is : 56
+The time server receive order : QUERY TIME ORDER ; the counter is : 57
+The time server receive order : QUERY TIME ORDER ; the counter is : 58
+The time server receive order : QUERY TIME ORDER ; the counter is : 59
+The time server receive order : QUERY TIME ORDER ; the counter is : 60
+The time server receive order : QUERY TIME ORDER ; the counter is : 61
+The time server receive order : QUERY TIME ORDER ; the counter is : 62
+The time server receive order : QUERY TIME ORDER ; the counter is : 63
+The time server receive order : QUERY TIME ORDER ; the counter is : 64
+The time server receive order : QUERY TIME ORDER ; the counter is : 65
+The time server receive order : QUERY TIME ORDER ; the counter is : 66
+The time server receive order : QUERY TIME ORDER ; the counter is : 67
+The time server receive order : QUERY TIME ORDER ; the counter is : 68
+The time server receive order : QUERY TIME ORDER ; the counter is : 69
+The time server receive order : QUERY TIME ORDER ; the counter is : 70
+The time server receive order : QUERY TIME ORDER ; the counter is : 71
+The time server receive order : QUERY TIME ORDER ; the counter is : 72
+The time server receive order : QUERY TIME ORDER ; the counter is : 73
+The time server receive order : QUERY TIME ORDER ; the counter is : 74
+The time server receive order : QUERY TIME ORDER ; the counter is : 75
+The time server receive order : QUERY TIME ORDER ; the counter is : 76
+The time server receive order : QUERY TIME ORDER ; the counter is : 77
+The time server receive order : QUERY TIME ORDER ; the counter is : 78
+The time server receive order : QUERY TIME ORDER ; the counter is : 79
+The time server receive order : QUERY TIME ORDER ; the counter is : 80
+The time server receive order : QUERY TIME ORDER ; the counter is : 81
+The time server receive order : QUERY TIME ORDER ; the counter is : 82
+The time server receive order : QUERY TIME ORDER ; the counter is : 83
+The time server receive order : QUERY TIME ORDER ; the counter is : 84
+The time server receive order : QUERY TIME ORDER ; the counter is : 85
+The time server receive order : QUERY TIME ORDER ; the counter is : 86
+The time server receive order : QUERY TIME ORDER ; the counter is : 87
+The time server receive order : QUERY TIME ORDER ; the counter is : 88
+The time server receive order : QUERY TIME ORDER ; the counter is : 89
+The time server receive order : QUERY TIME ORDER ; the counter is : 90
+The time server receive order : QUERY TIME ORDER ; the counter is : 91
+The time server receive order : QUERY TIME ORDER ; the counter is : 92
+The time server receive order : QUERY TIME ORDER ; the counter is : 93
+The time server receive order : QUERY TIME ORDER ; the counter is : 94
+The time server receive order : QUERY TIME ORDER ; the counter is : 95
+The time server receive order : QUERY TIME ORDER ; the counter is : 96
+The time server receive order : QUERY TIME ORDER ; the counter is : 97
+The time server receive order : QUERY TIME ORDER ; the counter is : 98
+The time server receive order : QUERY TIME ORDER ; the counter is : 99
+The time server receive order : QUERY TIME ORDER ; the counter is : 100
+
+客户端日志：
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 1
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 2
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 3
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 4
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 5
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 6
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 7
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 8
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 9
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 10
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 11
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 12
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 13
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 14
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 15
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 16
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 17
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 18
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 19
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 20
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 21
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 22
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 23
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 24
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 25
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 26
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 27
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 28
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 29
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 30
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 31
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 32
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 33
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 34
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 35
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 36
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 37
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 38
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 39
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 40
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 41
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 42
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 43
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 44
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 45
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 46
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 47
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 48
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 49
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 50
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 51
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 52
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 53
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 54
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 55
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 56
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 57
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 58
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 59
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 60
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 61
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 62
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 63
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 64
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 65
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 66
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 67
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 68
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 69
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 70
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 71
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 72
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 73
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 74
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 75
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 76
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 77
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 78
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 79
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 80
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 81
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 82
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 83
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 84
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 85
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 86
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 87
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 88
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 89
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 90
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 91
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 92
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 93
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 94
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 95
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 96
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 97
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 98
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 99
+Now is : Sun Jul 20 17:36:36 CST 2014 ; the counter is : 100
+
+日志分析：
+按照程序设计， 客户端应该接收到 100 条当前系统的时间消息，但实际上只收到了一条。
+因为服务器只收到了 2 条请求，并返回了 2 条 “BAD ORDER” 应答。但实际客户端只首都了 1条。
+表明服务器端也发生了粘包。

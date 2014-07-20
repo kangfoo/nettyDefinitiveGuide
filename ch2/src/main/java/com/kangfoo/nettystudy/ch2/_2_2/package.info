@@ -1,0 +1,18 @@
+伪异步 I/O 比 普通的 BIO 模型多了个 线程池，它仍然没有解决 IO 堵塞的问题。
+
+运行程序：
+
+1. 运行服务器端 com.kangfoo.nettystudy.ch2._2_2.TimeServer
+输出：
+The time server is start in port : 8080
+
+
+2. 运行客户端 com.kangfoo.nettystudy.ch2._2_1.TimeClient
+输出：
+Send order 2 server succeed.
+Now is : Sun Jul 20 01:48:23 CST 2014
+
+3. 服务器输出
+输出：
+The time server is start in port : 8080
+The time server receive order : QUERY TIME ORDER

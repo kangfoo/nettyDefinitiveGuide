@@ -1,0 +1,19 @@
+本章节可直接参阅博客
+
+NIO类库简介
+http://ifeve.com/netty-2-3-1/
+
+1. 缓冲区Buffer
+缓冲区实质上是一个数组。通常它是一个字节数组（ByteBuffer），也可以使用其它种类的数组。但是一个缓冲区不仅仅是一个数组，缓冲区提供了对数据的结构化访问，及维护读写位置（limit）等信息。
+
+2. 缓冲区Buffer
+Channel是一个通道，可以通过它读取和写入数据，它就像自来水管一样，网络数据通过Channel读取和写入。通道与流的不同之处在于通道是双向的。而流只是在一个方向上移动(一个流必须是 InputStream 或者 OutputStream 的子类)，而通道可以用于读、写或者同时用于读写。
+Channel可以分为两大类，分别是用于网络读写的SelectableChannel和用于文件操作的FileChannel。
+
+3. 多路复用器Selector
+多路复用器提供选择已经就绪的任务的能力。简单来讲，Selector会不断的轮询注册在其上的Channel，如果某个Channel上面有新的TCP连接接入、读和写事件，这个Channel就处于就绪状态，会被Selector轮询出来，然后通过SelectionKey可以获取就绪Channel的集合进行后续的IO操作。
+一个多路复用器Selector可以同时轮询多个Channel，由于JDK使用了epoll()代替传统的select实现，所以它并没有最大连接句柄1024/2048的限制。
+
+
+NIO 服务端序列图
+http://ifeve.com/netty-2-3-2/

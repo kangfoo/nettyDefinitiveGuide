@@ -6,6 +6,8 @@ nettyDefinitiveGuide
 http://ifeve.com/category/netty/
 http://ifeve.com/java-nio-all/
 
+原书代码
+http://www.broadview.com.cn/23343
 
 
 netty 5.x 版本    user-guide

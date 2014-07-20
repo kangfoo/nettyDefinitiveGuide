@@ -14,6 +14,7 @@
         <module>ch4</module>
         <module>ch5</module>
         <module>ch7</module>
+        <module>ch8</module>
     </modules>
 
     <dependencies>
@@ -50,6 +51,12 @@
                 <groupId>javassist</groupId>
                 <artifactId>javassist</artifactId>
                 <version>3.12.1.GA</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-java</artifactId>
+                <version>2.5.0</version>
             </dependency>
 
         </dependencies>

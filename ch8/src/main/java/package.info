@@ -1,0 +1,27 @@
+开发步骤：
+
+1. 首先安装 protobuf
+2. 编写 SubscribeReq.proto
+3. 生成 java 文件
+日志如下：
+kang-mac:java kangfoo-mac$ protoc --version
+libprotoc 2.5.0
+kang-mac:~ kangfoo-mac$ cd /Users/kangfoo-mac/study/nettyDefinitiveGuide/ch8/src/main/java/
+kang-mac:java kangfoo-mac$ ll
+total 16
+drwxr-xr-x  5 kangfoo-mac  staff  170  7 20 19:20 ./
+drwxr-xr-x  4 kangfoo-mac  staff  136  7 20 19:15 ../
+-rw-r--r--  1 kangfoo-mac  staff  275  7 20 19:19 SubscribeReq.proto
+-rw-r--r--  1 kangfoo-mac  staff  275  7 20 19:19 SubscribeResp.proto
+drwxr-xr-x  3 kangfoo-mac  staff  102  7 20 19:16 com/
+-rw-r--r--  1 kangfoo-mac  staff  104  7 20 19:20 package.info
+kang-mac:java kangfoo-mac$ protoc --java_out=. SubscribeReq.proto
+kang-mac:java kangfoo-mac$ protoc --java_out=. SubscribeResp.proto
+
+4. 导入 protobuf 类库
+5. 编写测试代码
+
+  .addLast(new ProtobufVarint32FrameDecoder())      // 处理半包
+  .addLast(new ProtobufDecoder(SubscribeRespProto.SubscribeResp.getDefaultInstance())) // 编码
+  .addLast(new ProtobufVarint32LengthFieldPrepender()) //
+  .addLast(new ProtobufEncoder())

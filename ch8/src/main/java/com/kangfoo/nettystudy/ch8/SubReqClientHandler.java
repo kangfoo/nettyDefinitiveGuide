@@ -1,8 +1,10 @@
-package com.kangfoo.nettystudy.ch7;
+package com.kangfoo.nettystudy.ch8;
 
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * User: kangfoo-mac
@@ -11,25 +13,28 @@ import io.netty.channel.ChannelHandlerContext;
  */
 public class SubReqClientHandler extends ChannelHandlerAdapter {
 
-    private int counter;
-    private final static String ECHO_REQ="Hi, kangfoo. Welcome to Netty.$_";
-
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         for (int i = 0 ; i <10 ; i++){
-            ctx.write(subReq(i));
+            ctx.write(subbuilder(i));
         }
         ctx.flush();
     }
 
-    private SubscribeReq subReq(int i) {
-        SubscribeReq req = new SubscribeReq();
-        req.setAddress("cd");
-        req.setPhoneNumber("pn");
-        req.setProductName("Netty 权威指南");
-        req.setSubReqID(i);
-        req.setUserName("kangfoo");
-        return req;
+    private SubscribeReqProto.SubscribeReq subbuilder(int i) {
+        SubscribeReqProto.SubscribeReq.Builder builder = SubscribeReqProto.SubscribeReq.newBuilder();
+
+        builder.setProductName("Netty 权威指南");
+        builder.setSubReqID(i);
+        builder.setUserName("kangfoo");
+
+        List<String> adds = new ArrayList<String>();
+        adds.add("cd");
+        adds.add("sh");
+        adds.add("nb");
+        builder.addAllAddress(adds);
+
+        return builder.build();
     }
 
     @Override

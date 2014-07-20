@@ -22,3 +22,9 @@
 ch2/.DS_Store
 
 kangfoo.nettyDefinitiveGuide.iml
+
+*.class
+
+ch2/src/main/java/com/kangfoo/nettystudy/.DS_Store
+
+*.iml

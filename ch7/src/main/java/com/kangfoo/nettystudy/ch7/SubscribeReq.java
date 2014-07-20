@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Date: 14-7-20
  * Time: 下午6:44
  */
-public class SubscribeReq implements Serializable{
+public class SubscribeReq implements Serializable {
     private int subReqID;
     private String userName;
     private String productName;

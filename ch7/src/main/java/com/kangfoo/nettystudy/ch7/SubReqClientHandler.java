@@ -1,6 +1,5 @@
 package com.kangfoo.nettystudy.ch7;
 
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -12,11 +11,11 @@ import io.netty.channel.ChannelHandlerContext;
 public class SubReqClientHandler extends ChannelHandlerAdapter {
 
     private int counter;
-    private final static String ECHO_REQ="Hi, kangfoo. Welcome to Netty.$_";
+    private final static String ECHO_REQ = "Hi, kangfoo. Welcome to Netty.$_";
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        for (int i = 0 ; i <10 ; i++){
+        for (int i = 0; i < 10; i++) {
             ctx.write(subReq(i));
         }
         ctx.flush();
@@ -34,7 +33,7 @@ public class SubReqClientHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("Receive server response : ["+ msg+"]");
+        System.out.println("Receive server response : [" + msg + "]");
     }
 
     @Override

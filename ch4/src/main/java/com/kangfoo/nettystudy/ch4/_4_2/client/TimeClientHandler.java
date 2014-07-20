@@ -21,13 +21,13 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 
 
     public TimeClientHandler() {
-        req = ("QUERY TIME ORDER" +  System.getProperty("line.separator")) .getBytes();
+        req = ("QUERY TIME ORDER" + System.getProperty("line.separator")).getBytes();
     }
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         ByteBuf message = null;
-        for (int i =0 ;i < 100; i++){
+        for (int i = 0; i < 100; i++) {
             message = Unpooled.buffer(req.length);
             message.writeBytes(req);
             ctx.writeAndFlush(message);

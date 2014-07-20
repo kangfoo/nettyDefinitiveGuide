@@ -25,10 +25,10 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
 //        String body = new String(req, "UTF-8").substring(0, req.length - System.getProperty("line.separator").length());
         String body = (String) msg; // 直接被解码了。不必再次解码。
 
-        System.out.println("The time server receive order : " + body + " ; the counter is : " + (++counter) );
+        System.out.println("The time server receive order : " + body + " ; the counter is : " + (++counter));
 
         String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString() : "BAD ORDER";
-        currentTime = currentTime +  System.getProperty("line.separator");
+        currentTime = currentTime + System.getProperty("line.separator");
 
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         ctx.writeAndFlush(resp);

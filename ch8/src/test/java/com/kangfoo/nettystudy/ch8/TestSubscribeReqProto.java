@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class TestSubscribeReqProto {
 
-    private static byte[] encode(SubscribeReqProto.SubscribeReq req){
+    private static byte[] encode(SubscribeReqProto.SubscribeReq req) {
         return req.toByteArray();
     }
 
@@ -20,7 +20,7 @@ public class TestSubscribeReqProto {
         return SubscribeReqProto.SubscribeReq.parseFrom(body);
     }
 
-    private static SubscribeReqProto.SubscribeReq createSubscribeReq(){
+    private static SubscribeReqProto.SubscribeReq createSubscribeReq() {
         SubscribeReqProto.SubscribeReq.Builder builder = SubscribeReqProto.SubscribeReq.newBuilder();
         builder.setSubReqID(1);
         builder.setUserName("kangfoo");

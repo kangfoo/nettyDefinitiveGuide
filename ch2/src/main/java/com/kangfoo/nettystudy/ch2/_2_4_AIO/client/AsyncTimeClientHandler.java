@@ -68,12 +68,12 @@ public class AsyncTimeClientHandler implements
                                         @Override
                                         public void completed(Integer result, ByteBuffer buffer) {
                                             buffer.flip();
-                                            byte[] bytes = new byte[buffer .remaining()];
+                                            byte[] bytes = new byte[buffer.remaining()];
                                             buffer.get(bytes);
                                             String body;
                                             try {
                                                 body = new String(bytes, "UTF-8");
-                                                System.out.println("Now is : "  + body);
+                                                System.out.println("Now is : " + body);
                                                 latch.countDown();
                                             } catch (UnsupportedEncodingException e) {
                                                 e.printStackTrace();

@@ -1,7 +1,5 @@
 package com.kangfoo.nettystudy.ch5.fixedlength;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -14,7 +12,7 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        System.out.println("Receive client : ["+ msg+"]");
+        System.out.println("Receive client : [" + msg + "]");
     }
 
     @Override

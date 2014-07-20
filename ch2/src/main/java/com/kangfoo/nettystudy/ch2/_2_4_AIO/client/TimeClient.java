@@ -15,7 +15,7 @@ public class TimeClient {
                 // 采用默认值
             }
         }
-        new Thread(new AsyncTimeClientHandler("127.0.0.1", port),  "AIO-AsyncTimeClientHandler-001").start();
+        new Thread(new AsyncTimeClientHandler("127.0.0.1", port), "AIO-AsyncTimeClientHandler-001").start();
 
     }
 }

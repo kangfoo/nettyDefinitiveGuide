@@ -15,6 +15,7 @@
         <module>ch5</module>
         <module>ch7</module>
         <module>ch8</module>
+        <module>ch12</module>
     </modules>
 
     <dependencies>

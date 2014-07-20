@@ -62,4 +62,6 @@ public class SubReqClient {
         }
 
         new SubReqClient().connect(port, "localhost");
-    }}
+    }
+
+}

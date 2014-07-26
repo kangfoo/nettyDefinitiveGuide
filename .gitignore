@@ -24,3 +24,19 @@
 *.DS_Store
 
 *.iml
+
+.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml
+
+.idea/libraries/Maven__com_google_protobuf_protobuf_java_2_5_0.xml
+
+.idea/libraries/Maven__io_netty_netty_all_5_0_0_Alpha1.xml
+
+.idea/libraries/Maven__log4j_log4j_1_2_17.xml
+
+.idea/libraries/Maven__org_jboss_marshalling_jboss_marshalling_1_3_18_GA.xml
+
+.idea/libraries/Maven__org_jboss_marshalling_jboss_marshalling_serial_1_3_18_GA.xml
+
+.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml
+
+.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_7.xml

@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
+       <!--
         <module>ch2</module>
         <module>ch3</module>
         <module>ch4</module>
@@ -17,6 +18,9 @@
         <module>ch8</module>
         <module>ch12</module>
         <module>ch14</module>
+        -->
+        <module>jmeterSocketTest</module>
+
     </modules>
 
     <dependencies>
